@@ -1,0 +1,45 @@
+
+  {
+    "coord": {
+      "lon": "regex:[\\d]+\\.?[\\d]*",
+      "lat": "regex:[\\d]+\\.?[\\d]*"
+    },
+    "weather": [
+      {
+        "id": "regex:[\\d]+",
+        "main": "type:String",
+        "description": "type:String",
+        "icon": "type:String"
+      }
+    ],
+    "base": "type:String",
+    "main": {
+      "temp": "regex:[\\d]+\\.?[\\d]*",
+      "feels_like": "regex:[\\d]+\\.?[\\d]*",
+      "temp_min": "regex:[\\d]+\\.?[\\d]*",
+      "temp_max": "regex:[\\d]+\\.?[\\d]*",
+      "pressure": "regex:[\\d]+",
+      "humidity": "regex:[\\d]+"
+    },
+    "visibility": "regex:[\\d]+",
+    "wind": {
+      "speed": "regex:[\\d]+\\.?[\\d]*",
+      "deg": "regex:[\\d]+"
+    },
+    "clouds": {
+      "all": "regex:[\\d]+"
+    },
+    "dt": "regex:[\\d]+",
+    "sys": {
+      "type": "regex:[\\d]+",
+      "id": "regex:[\\d]+",
+      "country": "type:String",
+      "sunrise": "regex:[\\d]+",
+      "sunset": "regex:[\\d]+"
+    },
+    "timezone": "regex:[\\-\\d]+",
+    "id": "regex:[\\d]+",
+    "name": "type:String",
+    "cod": "regex:[\\d]+"
+  }
+

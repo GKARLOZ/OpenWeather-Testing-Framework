@@ -1,95 +1,408 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "array",
-  "items": {
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
     "type": "object",
-    "properties": {
-      "id": {
-        "type": "integer"
-      },
-      "name": {
-        "type": "string"
-      },
-      "username": {
-        "type": "string"
-      },
-      "email": {
-        "type": "string"
-      },
-      "address": {
-        "type": "object",
-        "properties": {
-          "street": {
-            "type": "string"
-          },
-          "suite": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "zipcode": {
-            "type": "string"
-          },
-          "geo": {
-            "type": "object",
-            "properties": {
-              "lat": {
-                "type": "string"
-              },
-              "lng": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "lat",
-              "lng"
-            ]
-          }
-        },
-        "required": [
-          "street",
-          "suite",
-          "city",
-          "zipcode",
-          "geo"
-        ]
-      },
-      "phone": {
-        "type": "string"
-      },
-      "website": {
-        "type": "string"
-      },
-      "company": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "catchPhrase": {
-            "type": "string"
-          },
-          "bs": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "catchPhrase",
-          "bs"
-        ]
-      }
-    },
+    "default": {},
+    "title": "Root Schema",
     "required": [
-      "id",
-      "name",
-      "username",
-      "email",
-      "address",
-      "phone",
-      "website",
-      "company"
-    ]
-  }
+        "coord",
+        "weather",
+        "base",
+        "main",
+        "visibility",
+        "wind",
+        "clouds",
+        "dt",
+        "sys",
+        "timezone",
+        "id",
+        "name",
+        "cod"
+    ],
+    "properties": {
+        "coord": {
+            "type": "object",
+            "default": {},
+            "title": "The coord Schema",
+            "required": [
+                "lon",
+                "lat"
+            ],
+            "properties": {
+                "lon": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The lon Schema",
+                    "examples": [
+                        -
+                        118.2462
+                    ]
+                },
+                "lat": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The lat Schema",
+                    "examples": [
+                        33.9497
+                    ]
+                }
+            },
+            "examples": [{
+                "lon":
+                    -
+                    118.2462,
+                "lat": 33.9497
+            }]
+        },
+        "weather": {
+            "type": "array",
+            "default": [],
+            "title": "The weather Schema",
+            "items": {
+                "type": "object",
+                "default": {},
+                "title": "A Schema",
+                "required": [
+                    "id",
+                    "main",
+                    "description",
+                    "icon"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "default": 0,
+                        "title": "The id Schema",
+                        "examples": [
+                            800
+                        ]
+                    },
+                    "main": {
+                        "type": "string",
+                        "default": "",
+                        "title": "The main Schema",
+                        "examples": [
+                            "Clear"
+                        ]
+                    },
+                    "description": {
+                        "type": "string",
+                        "default": "",
+                        "title": "The description Schema",
+                        "examples": [
+                            "clear sky"
+                        ]
+                    },
+                    "icon": {
+                        "type": "string",
+                        "default": "",
+                        "title": "The icon Schema",
+                        "examples": [
+                            "01d"
+                        ]
+                    }
+                },
+                "examples": [{
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }]
+            },
+            "examples": [
+                [{
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }]
+            ]
+        },
+        "base": {
+            "type": "string",
+            "default": "",
+            "title": "The base Schema",
+            "examples": [
+                "stations"
+            ]
+        },
+        "main": {
+            "type": "object",
+            "default": {},
+            "title": "The main Schema",
+            "required": [
+                "temp",
+                "feels_like",
+                "temp_min",
+                "temp_max",
+                "pressure",
+                "humidity"
+            ],
+            "properties": {
+                "temp": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The temp Schema",
+                    "examples": [
+                        297.3
+                    ]
+                },
+                "feels_like": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The feels_like Schema",
+                    "examples": [
+                        296.27
+                    ]
+                },
+                "temp_min": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The temp_min Schema",
+                    "examples": [
+                        295.14
+                    ]
+                },
+                "temp_max": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The temp_max Schema",
+                    "examples": [
+                        299.72
+                    ]
+                },
+                "pressure": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The pressure Schema",
+                    "examples": [
+                        1019
+                    ]
+                },
+                "humidity": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The humidity Schema",
+                    "examples": [
+                        19
+                    ]
+                }
+            },
+            "examples": [{
+                "temp": 297.3,
+                "feels_like": 296.27,
+                "temp_min": 295.14,
+                "temp_max": 299.72,
+                "pressure": 1019,
+                "humidity": 19
+            }]
+        },
+        "visibility": {
+            "type": "integer",
+            "default": 0,
+            "title": "The visibility Schema",
+            "examples": [
+                10000
+            ]
+        },
+        "wind": {
+            "type": "object",
+            "default": {},
+            "title": "The wind Schema",
+            "required": [
+                "speed",
+                "deg"
+            ],
+            "properties": {
+                "speed": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The speed Schema",
+                    "examples": [
+                        2.57
+                    ]
+                },
+                "deg": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The deg Schema",
+                    "examples": [
+                        220
+                    ]
+                }
+            },
+            "examples": [{
+                "speed": 2.57,
+                "deg": 220
+            }]
+        },
+        "clouds": {
+            "type": "object",
+            "default": {},
+            "title": "The clouds Schema",
+            "required": [
+                "all"
+            ],
+            "properties": {
+                "all": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The all Schema",
+                    "examples": [
+                        0
+                    ]
+                }
+            },
+            "examples": [{
+                "all": 0
+            }]
+        },
+        "dt": {
+            "type": "integer",
+            "default": 0,
+            "title": "The dt Schema",
+            "examples": [
+                1699557476
+            ]
+        },
+        "sys": {
+            "type": "object",
+            "default": {},
+            "title": "The sys Schema",
+            "required": [
+                "type",
+                "id",
+                "country",
+                "sunrise",
+                "sunset"
+            ],
+            "properties": {
+                "type": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The type Schema",
+                    "examples": [
+                        1
+                    ]
+                },
+                "id": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The id Schema",
+                    "examples": [
+                        3694
+                    ]
+                },
+                "country": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The country Schema",
+                    "examples": [
+                        "US"
+                    ]
+                },
+                "sunrise": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The sunrise Schema",
+                    "examples": [
+                        1699539580
+                    ]
+                },
+                "sunset": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The sunset Schema",
+                    "examples": [
+                        1699577641
+                    ]
+                }
+            },
+            "examples": [{
+                "type": 1,
+                "id": 3694,
+                "country": "US",
+                "sunrise": 1699539580,
+                "sunset": 1699577641
+            }]
+        },
+        "timezone": {
+            "type": "integer",
+            "default": 0,
+            "title": "The timezone Schema",
+            "examples": [
+                -
+                28800
+            ]
+        },
+        "id": {
+            "type": "integer",
+            "default": 0,
+            "title": "The id Schema",
+            "examples": [
+                0
+            ]
+        },
+        "name": {
+            "type": "string",
+            "default": "",
+            "title": "The name Schema",
+            "examples": [
+                "Los Angeles"
+            ]
+        },
+        "cod": {
+            "type": "integer",
+            "default": 0,
+            "title": "The cod Schema",
+            "examples": [
+                200
+            ]
+        }
+    },
+    "examples": [{
+        "coord": {
+            "lon":
+                -
+                118.2462,
+            "lat": 33.9497
+        },
+        "weather": [{
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }],
+        "base": "stations",
+        "main": {
+            "temp": 297.3,
+            "feels_like": 296.27,
+            "temp_min": 295.14,
+            "temp_max": 299.72,
+            "pressure": 1019,
+            "humidity": 19
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 2.57,
+            "deg": 220
+        },
+        "clouds": {
+            "all": 0
+        },
+        "dt": 1699557476,
+        "sys": {
+            "type": 1,
+            "id": 3694,
+            "country": "US",
+            "sunrise": 1699539580,
+            "sunset": 1699577641
+        },
+        "timezone":
+            -
+            28800,
+        "id": 0,
+        "name": "Los Angeles",
+        "cod": 200
+    }]
 }

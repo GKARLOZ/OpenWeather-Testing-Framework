@@ -1,6 +1,6 @@
 package com.giancodes.gui.pages.common;
 
-import com.giancodes.gui.pages.common.Header.HeaderMenu;
+import com.giancodes.gui.components.Header.HeaderMenu;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;

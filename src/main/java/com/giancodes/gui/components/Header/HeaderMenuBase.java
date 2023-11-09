@@ -1,4 +1,4 @@
-package com.giancodes.gui.pages.common.Header;
+package com.giancodes.gui.components.Header;
 
 import com.giancodes.gui.pages.desktop.SignInPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
