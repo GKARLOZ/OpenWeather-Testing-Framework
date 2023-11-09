@@ -1,3 +1,6 @@
+.idea/
+.settings/
+reports/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
