@@ -17,9 +17,23 @@ public class SignInPage extends SignInPageBase {
 
     @FindBy(xpath = "//form[contains(@class,\"simple_form new_user\")]//input[contains(@name, \"commit\")]\n")
     private ExtendedWebElement submitButton;
+
+    @FindBy(xpath = "//div[contains(@class, \"sign-form\")]//h3")
+    private ExtendedWebElement signInFormText;
+
+    @FindBy(xpath = "//div[contains(@class, \"panel-body\")]")
+    private ExtendedWebElement alertMessage;
     public SignInPage(WebDriver driver){
         super(driver);
 
+    }
+
+    public ExtendedWebElement getAlertMessage(){
+        return alertMessage;
+    }
+
+    public ExtendedWebElement getSignInFormText(){
+        return signInFormText;
     }
 
     public UserHomePage signIn(String username, String password){
