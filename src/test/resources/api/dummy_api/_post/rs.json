@@ -1,0 +1,6 @@
+{
+  "userId": "type:Integer",
+  "id": "type:Integer",
+  "title": "type:String",
+  "body": "regex:[a-zA-Z\\s]+"
+}
