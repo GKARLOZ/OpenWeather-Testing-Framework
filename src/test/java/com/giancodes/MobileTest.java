@@ -10,8 +10,8 @@ public class MobileTest implements IAbstractTest {
     @Test
     public void testSearchItems(){
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
-        pause(5);
         homePage.searchBox("San Diego, California, United States");
+        pause(5);
 
 
     }
