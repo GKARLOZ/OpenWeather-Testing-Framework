@@ -15,6 +15,7 @@ public abstract class HomePageBase extends AbstractPage implements IMobileUtils 
     }
 
     public abstract void  searchBox(String searchItem);
+    public abstract ExtendedWebElement getSearchText();
 
 
     }

@@ -20,23 +20,39 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Search\"]")
     private ExtendedWebElement searchButton;
     @FindBy(className = "android.widget.EditText")
-    private ExtendedWebElement searchTextBox;
+    private ExtendedWebElement searchTextBox;// search textbox in searching page
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Search\"]/android.widget.TextView")
+    private ExtendedWebElement searchTextBoxHP;// search textbox in homepage
 
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup")
+    @FindBy(xpath = "//android.widget.ScrollView//android.widget.TextView")
     private List<ExtendedWebElement> searchResultList;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@resource-id = \"daily\"]")
+    private ExtendedWebElement dailyWeather;
 
     public HomePage (WebDriver driver){
         super(driver);
         DontAllowButton.clickIfPresent();
     }
 
+    @Override
+    public boolean isPageOpened(){
+        System.out.println("daily element: "+ dailyWeather.getText());
+        return dailyWeather.isElementPresent();
+    }
+
+
+
     public void searchBox(String searchItem){
         searchButton.clickIfPresent();
         searchTextBox.click();
         searchTextBox.type(searchItem);
         tap(1316,2818,1);
-        System.out.println("Search result list: "+ searchResultList.toString());
         searchResultList.get(0).click();
+    }
+
+    public ExtendedWebElement getSearchText(){
+        return searchTextBoxHP;
     }
 
 
