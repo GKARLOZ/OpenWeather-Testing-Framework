@@ -13,6 +13,15 @@ import org.testng.annotations.Test;
 
 public class WebTest implements IAbstractTest, IAbstractDataProvider {
 
+    @Test()
+    public void testHomePage(){
+
+        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(),"HomePage did not open.");
+
+    }
+
     @Test(dataProvider = "DataProvider")
     @CsvDataSourceParameters(path = "data_source/SignInData.csv", dsUid = "TUID", dsArgs = "username,password")
     public void testSignInNegativeScenario(String username, String password){
