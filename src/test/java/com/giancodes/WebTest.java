@@ -1,5 +1,6 @@
 package com.giancodes;
 
+import com.giancodes.gui.pages.common.DashBoardPageBase;
 import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
@@ -14,12 +15,14 @@ import org.testng.annotations.Test;
 public class WebTest implements IAbstractTest, IAbstractDataProvider {
 
     @Test()
-    public void testHomePage(){
+    public void testDashBoardPage(){
 
         HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(),"HomePage did not open.");
 
+        DashBoardPageBase dashBoardPage = homePage.getHeaderMenu().clickDashBoardButton();
+        Assert.assertTrue(dashBoardPage.getPageTitle().getText().equals("Weather dashboard"));
     }
 
     @Test(dataProvider = "DataProvider")
