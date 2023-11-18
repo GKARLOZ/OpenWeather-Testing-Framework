@@ -24,6 +24,16 @@ public class WebTest implements IAbstractTest, IAbstractDataProvider {
         DashBoardPageBase dashBoardPage = homePage.getHeaderMenu().clickDashBoardButton();
         Assert.assertTrue(dashBoardPage.getPageTitle().getText().equals("Weather dashboard"));
     }
+    @Test()
+    public void testPricingPage(){
+
+        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(),"HomePage did not open.");
+
+        DashBoardPageBase dashBoardPage = homePage.getHeaderMenu().clickDashBoardButton();
+        Assert.assertTrue(dashBoardPage.getPageTitle().getText().equals("Weather dashboard"));
+    }
 
     @Test(dataProvider = "DataProvider")
     @CsvDataSourceParameters(path = "data_source/SignInData.csv", dsUid = "TUID", dsArgs = "username,password")
