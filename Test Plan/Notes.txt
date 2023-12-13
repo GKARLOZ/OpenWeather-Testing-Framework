@@ -1,0 +1,19 @@
+Notes
+
+Questions emerged during the creation of test cases. 
+
+
+When creating test, how do I know I covered the most importante? 
+Should the first part of every testing step be in the prerequisites instead?for the registration page. 
+
+When testing the create account page, how do I know that all 3 check boxes present an  
+
+
+Bugs found while creating test cases: 
+
+1.
+Bug found in tester@gmail when registration
+I thought the web application automacticlly might put the .com part but it does not. It creates a separate account for that person with different username.
+
+2.
+A taken username can be registered with a different email.  
