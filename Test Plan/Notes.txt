@@ -3,6 +3,11 @@ Notes
 Questions emerged during the creation of test cases. 
 
 
+A few test cases can be automated but I'm not sure if it should. Such as TC_LF_016, Wouldn't I need to create another test case to change the password to its original password to avoid having to change the password and use it on different test cases? 
+
+How do companies handle test cases that can be automaized? How do dev test their code if it needs to be manually tested? 
+
+
 When creating test, how do I know I covered the most importante? 
 Should the first part of every testing step be in the prerequisites instead?for the registration page. 
 
