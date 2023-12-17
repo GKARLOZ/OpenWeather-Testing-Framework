@@ -27,4 +27,15 @@ A taken username can be registered with a different email.
 Username accepts spaces and not trimmed.
 
 4. 
-Password complexity is not complex enough. Only requirement is to have 8 character minimum.   
+Password complexity is not complex enough. Only requirement is to have 8 character minimum. 
+
+5. 
+User should be loggout when pressing the logout button and than pressing the back button on broswer. 
+
+6. 
+When a person logouts from the profile page, and pressing the back button on the browser, sensitive information is still displayed. The same happens with any page such as the API keys and billing plans.  
+
+7. 
+
+
+  
