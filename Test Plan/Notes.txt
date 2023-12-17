@@ -2,8 +2,11 @@ Notes
 
 Questions emerged during the creation of test cases. 
 
+Notes..........................................................................
 
-A few test cases can be automated but I'm not sure if it should. Such as TC_LF_016, Wouldn't I need to create another test case to change the password to its original password to avoid having to change the password and use it on different test cases? 
+Question for later: 
+
+1. A few test cases can be automated but I'm not sure if it should. Such as TC_LF_016, Wouldn't I need to create another test case to change the password to its original password to avoid having to change the password and use it on different test cases? 
 
 How do companies handle test cases that can be automaized? How do dev test their code if it needs to be manually tested? 
 
@@ -11,7 +14,14 @@ How do companies handle test cases that can be automaized? How do dev test their
 When creating test, how do I know I covered the most importante? 
 Should the first part of every testing step be in the prerequisites instead?for the registration page. 
 
+
+Is it normal to have 27 test cases for a signin page?
+
+Is it good practice to combine test cases when creating test scripts? For exmaples one test case validates the error message and another test cases validates the proper placeholder for text fields. Boths of them can be combined into one test script. 
+
 When testing the create account page, how do I know that all 3 check boxes present an  
+
+Bugs Found ............................................................................
 
 
 Bugs found while creating test cases: 
