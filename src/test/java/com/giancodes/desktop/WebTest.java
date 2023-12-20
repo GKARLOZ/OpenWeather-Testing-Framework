@@ -1,10 +1,9 @@
-package com.giancodes;
+package com.giancodes.desktop;
 
 import com.giancodes.gui.pages.common.DashBoardPageBase;
 import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
-import com.giancodes.gui.pages.desktop.SignInPage;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.dataprovider.IAbstractDataProvider;
 import com.zebrunner.carina.dataprovider.annotations.CsvDataSourceParameters;
