@@ -20,5 +20,6 @@ public abstract class SignInPageBase extends AbstractPage {
     public abstract ExtendedWebElement getEmailTextBox();
     public abstract ExtendedWebElement getPasswordTextBox();
     public abstract HeaderMenu getHeaderMenu();
+    public abstract ExtendedWebElement getCreateAccount();
 
 }

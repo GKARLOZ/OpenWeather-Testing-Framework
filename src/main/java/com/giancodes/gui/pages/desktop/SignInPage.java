@@ -28,6 +28,9 @@ public class SignInPage extends SignInPageBase {
     @FindBy(xpath = "//div[contains(@class, \"panel-body\")]")
     private ExtendedWebElement alertMessage;
 
+    @FindBy(xpath = "//div[contains(@class, \"sign-form\")]/p/a")
+    private ExtendedWebElement createAccount;
+
     @FindBy(xpath = "//div[contains(@class, \"pwd-lost-q show\")]/a")
     private ExtendedWebElement recoverEmail;
 
@@ -37,6 +40,10 @@ public class SignInPage extends SignInPageBase {
     public SignInPage(WebDriver driver){
         super(driver);
 
+    }
+
+    public ExtendedWebElement getCreateAccount() {
+        return createAccount;
     }
 
     public ExtendedWebElement getEmailTextBox() {
@@ -72,5 +79,6 @@ public class SignInPage extends SignInPageBase {
         return new UserHomePage(driver);
 
     }
+
 
 }
