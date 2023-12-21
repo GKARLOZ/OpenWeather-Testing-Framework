@@ -14,9 +14,16 @@ public class HeaderMenu extends HeaderMenuBase{
     @FindBy(xpath = "//div[contains(@id, \"desktop-menu\")]//a[@href = \"/weather-dashboard\" and contains (text(), \"Dashboard\")]")
     private ExtendedWebElement dashBoardButton;
 
+    @FindBy(xpath = "//div[contains(@class,\"inner-user-container\")]")
+    private ExtendedWebElement userNameOnMenu;
+
 
     public HeaderMenu(WebDriver driver , SearchContext searchContext){
         super(driver, searchContext);
+    }
+
+    public ExtendedWebElement getUserNameOnMenu() {
+        return userNameOnMenu;
     }
 
     public SignInPage clickSignInButton(){

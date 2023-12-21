@@ -19,6 +19,11 @@ Is it normal to have 27 test cases for a signin page?
 
 Is it good practice to combine test cases when creating test scripts? For exmaples one test case validates the error message and another test cases validates the proper placeholder for text fields. Boths of them can be combined into one test script. 
 
+Should the test scripts be exactly like the expected results in the test cases?
+
+At some point, test scripts were not executing properly cus the website would not load. This stop happing until disconnecting and reconnecting to the internet. 
+
+
 When testing the create account page, how do I know that all 3 check boxes present an  
 
 Bugs Found ............................................................................
@@ -46,6 +51,12 @@ User should be loggout when pressing the logout button and than pressing the bac
 When a person logouts from the profile page, and pressing the back button on the browser, sensitive information is still displayed. The same happens with any page such as the API keys and billing plans.  
 
 7. 
+Using spaces on search box displays unexpected search results. 
+
+8. Not sure if this is a valid bug. 
+A few odd naming cities and islands don't appear. 
+(1700, AU)  (Apocalypse Peaks, Antarctica)(No Name, Colorado, USA)
+ 
 
 
   
