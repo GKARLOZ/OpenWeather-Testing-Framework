@@ -1,9 +1,7 @@
-package com.giancodes.desktop;
+package com.giancodes.desktopTests;
 
-import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
-import com.zebrunner.carina.core.AbstractTest;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
@@ -34,20 +32,20 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
 
-    @Test(description = "Validate back button after logging in. Test case: TC_LF_009")
+//    @Test(description = "Validate back button after logging in. Test case: TC_LF_009")
     public void backButtonValidSignInTest(){
 
         SignInPageBase signInPage = openSignInPage();
 
         UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
-        getDriver().navigate().back();
+        getDriver().navigate().back();// back button on browser
         Assert.assertTrue(signInPage.getSignInFormText().getText().equals("Sign In To Your Account"), "SignIn Page did not open");
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().isPresent(), "User is not logged in when clicking the back button on browser.");
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().getText().equals("testio55"), "Invalid username on header menu.");
 
     }
-    @Test( dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
+//    @Test( dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials. Test Cases: TC_LF_002,003,004,005")
     public void InvalidCreditsSignInTest(String email, String password){
 
         SignInPageBase signInPage = openSignInPage();
@@ -57,7 +55,7 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
 
-    @Test()
+//    @Test(description = "Validate links, placeholders, copy and paste. Test case: TC_LF_006,008,016,013")
     public void SmallDetailsSignInTest() {
         SignInPageBase signInPage = openSignInPage();
         SoftAssert softAssert = new SoftAssert();
@@ -66,7 +64,7 @@ public class SignInTest implements IAbstractTest, IBase {
         softAssert.assertTrue(signInPage.getEmailTextBox().getElement().getAttribute("placeholder").equals("Enter email"), "Email text box has invalid placeholder in SignIn.");
         softAssert.assertTrue(signInPage.getPasswordTextBox().getElement().getAttribute("placeholder").equals("Password"), "Password text box has invalid placeholder in SignIn.");
 
-        //TC_LF_006 // TC_LF_016
+        //TC_LF_006 // TC_LF_016 // duplicates
         softAssert.assertTrue(signInPage.getCreateAccount().isPresent(),"Create Account Link in SignIn not present");
         softAssert.assertTrue(signInPage.getRecoverEmailElement().isPresent(),"Recover Link in SignIn not present");
         signInPage.getRecoverEmailElement().clickIfPresent();
@@ -96,7 +94,7 @@ public class SignInTest implements IAbstractTest, IBase {
 
 
 
-    @DataProvider(name = "invalidCreds")
+    @DataProvider(name = "invalidCreds", parallel = true)
     public Object[][]dataproviderForSearch(){
 
         return new Object[][]{

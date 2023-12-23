@@ -1,4 +1,4 @@
-package com.giancodes.desktop;
+package com.giancodes.desktopTests;
 
 import com.giancodes.gui.pages.common.DashBoardPageBase;
 import com.giancodes.gui.pages.common.HomePageBase;

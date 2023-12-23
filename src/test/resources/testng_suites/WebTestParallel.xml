@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyFirstTestParallelSuite" parallel="classes">
+    <test thread-count="4" name="MyFirstTestParallel">
+        <parameter name="capabilities.browserName" value="chrome"/>
+        <classes>
+            <class name="com.giancodes.Setup"/>
+            <class name="com.giancodes.desktopTests.SignInTest"/>
+        </classes>
+    </test>
+</suite>

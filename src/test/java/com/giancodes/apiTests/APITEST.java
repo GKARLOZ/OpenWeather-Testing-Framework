@@ -1,4 +1,4 @@
-package com.giancodes;
+package com.giancodes.apiTests;
 
 import com.giancodes.api.DeleteDummyMethod;
 import com.giancodes.api.GetDummyMethod;

@@ -1,4 +1,4 @@
-package com.giancodes;
+package com.giancodes.mobileTest;
 
 import com.giancodes.mobile.common.HomePageBase;
 import com.zebrunner.carina.core.IAbstractTest;
