@@ -1,20 +1,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="MyFirstTestParallelSuite" parallel="tests" thread-count="4">
-    <test  name="1TestParallel">
+<suite name="Multi Browser Sign In Testing. " parallel="tests" thread-count="4">
+    <test  name="Setup Docker Grid">
         <classes>
             <class name="com.giancodes.SetUp"/>
         </classes>
     </test>
-    <test  name="2TestParallel" >
+    <test  name="Chrome Sign In Test" >
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.giancodes.desktopTests.SignInTest"/>
         </classes>
     </test>
-    <test  name="3TestParallel" >
+    <test  name="Firefox Sign In Test" >
         <parameter name="browser" value="Firefox"/>
         <classes>
             <class name="com.giancodes.desktopTests.SignInTest"/>
         </classes>
     </test>
+    <test  name="Edge Sign In Test" >
+        <parameter name="browser" value="Edge"/>
+        <classes>
+            <class name="com.giancodes.desktopTests.SignInTest"/>
+        </classes>
+    </test>
 </suite>
+

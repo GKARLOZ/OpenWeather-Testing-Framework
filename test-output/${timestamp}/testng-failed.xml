@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="tests" data-provider-thread-count="1" name="Failed suite [Multi Browser Sign In Testing. ]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="4" parallel="tests" name="Chrome Sign In Test(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.giancodes.desktopTests.SignInTest">
+        <methods>
+          <include name="onCarinaAfterMethod"/>
+          <include name="ValidCreditsSignInTest"/>
+          <include name="pickBrowser"/>
+        </methods>
+      </class> <!-- com.giancodes.desktopTests.SignInTest -->
+    </classes>
+  </test> <!-- Chrome Sign In Test(failed) -->
+  <test thread-count="4" parallel="tests" name="Edge Sign In Test(failed)" verbose="0">
+    <parameter name="browser" value="Edge"/>
+    <classes>
+      <class name="com.giancodes.desktopTests.SignInTest">
+        <methods>
+          <include name="onCarinaAfterMethod"/>
+          <include name="ValidCreditsSignInTest"/>
+          <include name="pickBrowser"/>
+        </methods>
+      </class> <!-- com.giancodes.desktopTests.SignInTest -->
+    </classes>
+  </test> <!-- Edge Sign In Test(failed) -->
+  <test thread-count="4" parallel="tests" name="Firefox Sign In Test(failed)" verbose="0">
+    <parameter name="browser" value="Firefox"/>
+    <classes>
+      <class name="com.giancodes.desktopTests.SignInTest">
+        <methods>
+          <include name="onCarinaAfterMethod"/>
+          <include name="ValidCreditsSignInTest"/>
+          <include name="pickBrowser"/>
+        </methods>
+      </class> <!-- com.giancodes.desktopTests.SignInTest -->
+    </classes>
+  </test> <!-- Firefox Sign In Test(failed) -->
+</suite> <!-- Failed suite [Multi Browser Sign In Testing. ] -->

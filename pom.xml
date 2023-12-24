@@ -154,11 +154,13 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-<!--					<argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>-->
+					<reportsDirectory>./test-output/${timestamp}</reportsDirectory>
+
+					<!--					<argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>-->
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<suiteXmlFiles>
-						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/WebTestParallel.xml</suiteXmlFile>
-<!--						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>-->
+						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/MultiBrowserTest.xml</suiteXmlFile>
+						<!--						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>-->
 
 					</suiteXmlFiles>
 				</configuration>

@@ -7,7 +7,9 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -21,11 +23,19 @@ import java.lang.invoke.MethodHandles;
 
 public class SignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private String currentBrowser;
+
+    @BeforeClass
+    @Parameters("browser")
+    public void pickBrowser(String browser){
+        currentBrowser =  browser;
+
+    }
+
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     public void ValidCreditsSignInTest(){
-
-        SignInPageBase signInPage = openSignInPage();
+        SignInPageBase signInPage = openSignInPage(currentBrowser);
 
         UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
@@ -35,7 +45,7 @@ public class SignInTest implements IAbstractTest, IBase {
 //    @Test(description = "Validate back button after logging in. Test case: TC_LF_009")
     public void backButtonValidSignInTest(){
 
-        SignInPageBase signInPage = openSignInPage();
+        SignInPageBase signInPage = openSignInPage(currentBrowser);
 
         UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
@@ -57,7 +67,7 @@ public class SignInTest implements IAbstractTest, IBase {
 
 //    @Test(description = "Validate links, placeholders, copy and paste. Test case: TC_LF_006,008,016,013")
     public void SmallDetailsSignInTest() {
-        SignInPageBase signInPage = openSignInPage();
+        SignInPageBase signInPage = openSignInPage(currentBrowser);
         SoftAssert softAssert = new SoftAssert();
 
         //TC_LF_008
@@ -90,10 +100,6 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
 
-
-
-
-
     @DataProvider(name = "invalidCreds", parallel = true)
     public Object[][]dataproviderForSearch(){
 
@@ -108,6 +114,5 @@ public class SignInTest implements IAbstractTest, IBase {
         };
 
     }
-
 
 }
