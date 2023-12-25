@@ -40,6 +40,15 @@
 	</repositories>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+
+		<dependency>
+			<groupId>com.zebrunner</groupId>
+			<artifactId>agent-testng</artifactId>
+			<version>1.9.7</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.zebrunner</groupId>
 			<artifactId>carina-core</artifactId>
@@ -154,7 +163,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<reportsDirectory>./test-output/${timestamp}</reportsDirectory>
 
 					<!--					<argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>-->
 					<useSystemClassLoader>false</useSystemClassLoader>

@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Multi Browser Sign In Testing. " parallel="tests" thread-count="4">
+
     <test  name="Setup Docker Grid">
         <classes>
             <class name="com.giancodes.SetUp"/>

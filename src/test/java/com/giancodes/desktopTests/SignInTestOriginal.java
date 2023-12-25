@@ -1,10 +1,7 @@
 package com.giancodes.desktopTests;
 
-//import com.aventstack.extentreports.ExtentReports;
-//import com.aventstack.extentreports.ExtentTest;
-//import com.aventstack.extentreports.Status;
-//import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-//import com.aventstack.extentreports.reporter.configuration.Theme;
+
+
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.zebrunner.carina.core.IAbstractTest;
@@ -18,7 +15,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -27,49 +23,21 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 
 
-
-public class SignInTest implements IAbstractTest, IBase {
+public class SignInTestOriginal implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private String currentBrowser;
-//    private static ExtentReports extent;
-//    private static ExtentTest extentTest;
-//    private static ExtentSparkReporter sparkReporter;
+
 
     @BeforeClass
     @Parameters("browser")
     public void pickBrowser(String browser){
         currentBrowser =  browser;
-//        extent = new ExtentReports();
-//        sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"\\test-output\\testReport.html");
-//        extent.attachReporter(sparkReporter);
-//
-//        sparkReporter.config().setDocumentTitle("My Report");
-//        sparkReporter.config().setReportName("tEST Report");
-//        sparkReporter.config().setTheme(Theme.STANDARD);
-//        sparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a'('zzz')'");
-//        sparkReporter.config().setEncoding("UTF-8");
-
-//        final File CONF = new File("config/spark-config.xml");
-//        ExtentSparkReporter spark = new ExtentSparkReporter("target/spark/spark.html");
-//        spark.loadXMLConfig(CONF);
 
     }
 
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     public void ValidCreditsSignInTest(){
-//        extentTest = extent.createTest("Signin Test Extent Report");
-//
-//        extentTest.log(Status.INFO,"Starting the test : "+ extentTest.getStatus());
-//        extentTest.assignCategory("P1");
-//        try {
-//            SignInPageBase signInPage = openSignInPage(currentBrowser);
-//
-//            UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
-//            Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
-//        }catch(Exception ex){
-//            extentTest.log(Status.FAIL, ex);
-//        }
 
         SignInPageBase signInPage = openSignInPage(currentBrowser);
 
