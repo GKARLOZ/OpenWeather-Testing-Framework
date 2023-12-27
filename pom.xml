@@ -41,14 +41,9 @@
 
 	<dependencies>
 
+
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 
-		<dependency>
-			<groupId>com.zebrunner</groupId>
-			<artifactId>agent-testng</artifactId>
-			<version>1.9.7</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>com.zebrunner</groupId>
 			<artifactId>carina-core</artifactId>
