@@ -28,18 +28,11 @@ public class SignInTestOriginal implements IAbstractTest, IBase {
     private String currentBrowser;
 
 
-    @BeforeClass
-    @Parameters("browser")
-    public void pickBrowser(String browser){
-        currentBrowser =  browser;
-
-    }
-
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     public void ValidCreditsSignInTest(){
 
-        SignInPageBase signInPage = openSignInPage(currentBrowser);
+        SignInPageBase signInPage = openSignInPage();
 
         UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));

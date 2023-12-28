@@ -1,10 +1,6 @@
 package com.giancodes.desktopTests;
 
-//import com.aventstack.extentreports.ExtentReports;
-//import com.aventstack.extentreports.ExtentTest;
-//import com.aventstack.extentreports.Status;
-//import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-//import com.aventstack.extentreports.reporter.configuration.Theme;
+
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.zebrunner.carina.core.IAbstractTest;
@@ -31,45 +27,17 @@ import java.lang.invoke.MethodHandles;
 public class SignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private String currentBrowser;
-//    private static ExtentReports extent;
-//    private static ExtentTest extentTest;
-//    private static ExtentSparkReporter sparkReporter;
 
     @BeforeClass
     @Parameters("browser")
     public void pickBrowser(String browser){
         currentBrowser =  browser;
-//        extent = new ExtentReports();
-//        sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"\\test-output\\testReport.html");
-//        extent.attachReporter(sparkReporter);
-//
-//        sparkReporter.config().setDocumentTitle("My Report");
-//        sparkReporter.config().setReportName("tEST Report");
-//        sparkReporter.config().setTheme(Theme.STANDARD);
-//        sparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a'('zzz')'");
-//        sparkReporter.config().setEncoding("UTF-8");
-
-//        final File CONF = new File("config/spark-config.xml");
-//        ExtentSparkReporter spark = new ExtentSparkReporter("target/spark/spark.html");
-//        spark.loadXMLConfig(CONF);
 
     }
 
 
-    @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
+//    @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     public void ValidCreditsSignInTest(){
-//        extentTest = extent.createTest("Signin Test Extent Report");
-//
-//        extentTest.log(Status.INFO,"Starting the test : "+ extentTest.getStatus());
-//        extentTest.assignCategory("P1");
-//        try {
-//            SignInPageBase signInPage = openSignInPage(currentBrowser);
-//
-//            UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
-//            Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
-//        }catch(Exception ex){
-//            extentTest.log(Status.FAIL, ex);
-//        }
 
         SignInPageBase signInPage = openSignInPage(currentBrowser);
 
@@ -94,14 +62,14 @@ public class SignInTest implements IAbstractTest, IBase {
 //    @Test( dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials. Test Cases: TC_LF_002,003,004,005")
     public void InvalidCreditsSignInTest(String email, String password){
 
-        SignInPageBase signInPage = openSignInPage();
+        SignInPageBase signInPage = openSignInPage(currentBrowser);
 
         signInPage.signIn(email, password);
         Assert.assertTrue(signInPage.getAlertMessage().getText().equals("Invalid Email or password."), " Wrong error message displayed when entering invalid credentials in Sign In");
 
     }
 
-//    @Test(description = "Validate links, placeholders, copy and paste. Test case: TC_LF_006,008,016,013")
+    @Test(description = "Validate links, placeholders, copy and paste. Test case: TC_LF_006,008,016,013")
     public void SmallDetailsSignInTest() {
         SignInPageBase signInPage = openSignInPage(currentBrowser);
         SoftAssert softAssert = new SoftAssert();

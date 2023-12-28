@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CryptoConsoleDecrypt" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.zebrunner.carina.crypto.CryptoConsole" />
+    <module name="OpenWeather-Testing-Framework" />
+    <option name="PROGRAM_PARAMETERS" value="-algorithm AES/ECB/PKCS5Padding -decrypt -key tsIQQv4Hm7daSXiH/Z+tyQ== -string r6hoYvuN+cDndX2lqcEZJQ==" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
+
+
