@@ -43,6 +43,10 @@ Question for later:
 
 How do companies handle test cases that can be automaized? How do dev test their code if it needs to be manually tested? 
 
+Is it possible to link TestRail to test cases without using Zebrunners Registration TestRail library and without having to add hardcode on each test case? 
+
+Does Zebrunner have the same ability as TestRail to mark each test case that was tested in a automation test? Zebrunner integrated TestRail to years ago, maybe it is possible now. 
+
 
 When creating test, how do I know I covered the most importante? 
 Should the first part of every testing step be in the prerequisites instead?for the registration page. 
@@ -76,7 +80,7 @@ I created IBase.java interface to avoid repeating code.
 
 2. Docker needed to be setup to create different continanier for different environments. I added bat files and a Setup class to fix that. 
 
-3. 
+3. Sensitive data was being exposed in the testing framework for that reason I needed to generate an key to encrypt sensitive data. I also created a file to encrypt any string or file. 
 
  
 
