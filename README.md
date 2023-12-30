@@ -11,10 +11,10 @@ Deliverables:
   * FRS
   * Test Plan
   * Test Cases
-  * Bug Reports
+  * Bug Reports 
   * Tracebility Matrix
   * Test Suites
-  * Testing Framework
+  * Testing Framework integrated to Zebrunner and TestRail
   * automate Docker setup for parallel testing using Selenium Grid
 
 :computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
