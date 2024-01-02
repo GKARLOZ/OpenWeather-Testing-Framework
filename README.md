@@ -15,7 +15,7 @@ Deliverables:
   * Tracebility Matrix
   * Test Suites
   * Encryptor and Decryptor for sensitive information.
-  * Testing Framework integrated to Zebrunner and TestRail
+  * Testing Framework integrated to Zebrunner.
   * automate Docker setup for parallel testing using Selenium Grid
 
 :computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
