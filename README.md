@@ -14,6 +14,7 @@ Deliverables:
   * Bug Reports 
   * Tracebility Matrix
   * Test Suites
+  * Encryptor and Decryptor for sensitive information.
   * Testing Framework integrated to Zebrunner and TestRail
   * automate Docker setup for parallel testing using Selenium Grid
 
