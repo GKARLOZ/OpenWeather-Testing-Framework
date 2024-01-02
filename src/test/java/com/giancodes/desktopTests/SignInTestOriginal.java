@@ -4,6 +4,8 @@ package com.giancodes.desktopTests;
 
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
+import com.zebrunner.agent.core.annotation.TestRailCaseId;
+import com.zebrunner.agent.core.registrar.TestRail;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
@@ -27,9 +29,16 @@ public class SignInTestOriginal implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private String currentBrowser;
 
+    @BeforeClass
+    public void setUp(){
+        TestRail.setSuiteId("333");
+
+
+    }
 
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
+    @TestRailCaseId("3433")
     public void ValidCreditsSignInTest(){
 
         SignInPageBase signInPage = openSignInPage();

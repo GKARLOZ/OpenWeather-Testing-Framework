@@ -1,0 +1,5 @@
+host: https://myfirstaccount.testrail.io
+project: OpenWeather
+username: {crypt:yGCGc/AAd02jQGme5H6UMZGdH7a4Y5+n58cUURkO4bA=}
+password: {crypt:Gx+NSrPrmdYKFS31L5lNtg==}
+title: My Test Run
