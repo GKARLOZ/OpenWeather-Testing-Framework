@@ -9,14 +9,17 @@ Status: In progress - Deliverables not finished yet.
 
 Deliverables: 
   * FRS
-  * Test Plan
-  * Test Cases
-  * Bug Reports 
-  * Tracebility Matrix
-  * Test Suites
-  * Encryptor and Decryptor for sensitive information.
-  * Testing Framework integrated to Zebrunner.
-  * automate Docker setup for parallel testing using Selenium Grid
+  * Test Plan - Done
+  * Test Cases - Done
+  * Bug Reports  - In progress
+  * Tracebility Matrix 
+  * Test Suites - In Progress
+  * Web Tests - In Progress
+  * API Tests - In Progress
+  * Mobile Tests - In Progress
+  * Encryptor and Decryptor for sensitive information - Done
+  * Testing Framework integrated to Zebrunner for Test Reports and Launchers - Done
+  * automate Docker setup for parallel testing using Selenium Grid -Done
 
 :computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
 
