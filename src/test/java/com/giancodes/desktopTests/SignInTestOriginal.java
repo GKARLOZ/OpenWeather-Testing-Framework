@@ -4,6 +4,7 @@ package com.giancodes.desktopTests;
 
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
+import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.agent.core.annotation.TestRailCaseId;
 import com.zebrunner.agent.core.registrar.TestRail;
 import com.zebrunner.carina.core.IAbstractTest;
@@ -27,18 +28,9 @@ import java.lang.invoke.MethodHandles;
 
 public class SignInTestOriginal implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    private String currentBrowser;
-
-    @BeforeClass
-    public void setUp(){
-        TestRail.setSuiteId("333");
-
-
-    }
-
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
-    @TestRailCaseId("3433")
+    @TestCaseKey("OPENW-620")
     public void ValidCreditsSignInTest(){
 
         SignInPageBase signInPage = openSignInPage();
@@ -48,10 +40,10 @@ public class SignInTestOriginal implements IAbstractTest, IBase {
 
     }
 
-//    @Test(description = "Validate back button after logging in. Test case: TC_LF_009")
+//    @Test(description = "Validate back button after logging in.")
     public void backButtonValidSignInTest(){
 
-        SignInPageBase signInPage = openSignInPage(currentBrowser);
+        SignInPageBase signInPage = openSignInPage();
 
         UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
@@ -71,22 +63,23 @@ public class SignInTestOriginal implements IAbstractTest, IBase {
 
     }
 
-//    @Test(description = "Validate links, placeholders, copy and paste. Test case: TC_LF_006,008,016,013")
-    public void SmallDetailsSignInTest() {
-        SignInPageBase signInPage = openSignInPage(currentBrowser);
+   @Test(description = "Validate links, placeholders, copy and paste." )
+   @TestCaseKey({"OPENW-627","OPENW-625","OPENW-632"})
+   public void SmallDetailsSignInTest() {
+        SignInPageBase signInPage = openSignInPage();
         SoftAssert softAssert = new SoftAssert();
 
-        //TC_LF_008
+        //OPENW-627
         softAssert.assertTrue(signInPage.getEmailTextBox().getElement().getAttribute("placeholder").equals("Enter email"), "Email text box has invalid placeholder in SignIn.");
         softAssert.assertTrue(signInPage.getPasswordTextBox().getElement().getAttribute("placeholder").equals("Password"), "Password text box has invalid placeholder in SignIn.");
 
-        //TC_LF_006 // TC_LF_016 // duplicates
+        //OPENW-625
         softAssert.assertTrue(signInPage.getCreateAccount().isPresent(),"Create Account Link in SignIn not present");
         softAssert.assertTrue(signInPage.getRecoverEmailElement().isPresent(),"Recover Link in SignIn not present");
         signInPage.getRecoverEmailElement().clickIfPresent();
         softAssert.assertTrue(signInPage.getRecoverEmailSendButton().isElementPresent(),"Send button not present.");
 
-        //TC_LF_013
+        //OEPNW-632
         signInPage.getEmailTextBox().type("testytestio836@gmail.com");
         signInPage.getPasswordTextBox().type("123qwe!@#QWE");
         signInPage.getPasswordTextBox().click();
