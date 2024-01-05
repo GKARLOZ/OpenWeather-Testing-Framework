@@ -11,8 +11,8 @@ Deliverables:
   * FRS
   * Test Plan - Done
   * Test Cases - Done
-  * Bug Reports  - In progress
-  * Tracebility Matrix 
+  * Bug Reports  - In Progress
+  * Tracebility Matrix - In Progress
   * Test Suites - In Progress
   * Web Tests - In Progress
   * API Tests - In Progress
