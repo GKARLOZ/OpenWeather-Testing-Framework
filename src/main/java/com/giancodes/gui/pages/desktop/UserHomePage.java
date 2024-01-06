@@ -1,5 +1,6 @@
 package com.giancodes.gui.pages.desktop;
 
+import com.giancodes.gui.components.Header.HeaderMenu;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -12,6 +13,9 @@ public class UserHomePage extends UserHomePageBase {
     @FindBy(xpath = "//div[@class='panel-body' and contains(text(), 'Signed in successfully.')]\n")
     private ExtendedWebElement GreenPanelMessage;
 
+    @FindBy(xpath = "//nav[contains(@id, \"nav-website\")]" )
+    private HeaderMenu headerMenu;
+
     public UserHomePage(WebDriver driver) {
         super(driver);
     }
@@ -19,6 +23,10 @@ public class UserHomePage extends UserHomePageBase {
 
     public ExtendedWebElement getGreenPanelMessage() {
         return GreenPanelMessage;
+    }
+
+    public HeaderMenu getHeaderMenu() {
+        return headerMenu;
     }
 
 }

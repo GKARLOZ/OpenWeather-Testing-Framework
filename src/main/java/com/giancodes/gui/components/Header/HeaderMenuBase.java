@@ -14,5 +14,7 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
 
     public abstract SignInPage clickSignInButton();
     public abstract ExtendedWebElement getUserNameOnMenu();
+    public abstract ExtendedWebElement getElementFromUserMenu(String element);
+
 
     }
