@@ -8,11 +8,11 @@
 Status: In progress - Deliverables not finished yet.
 
 Deliverables: 
-  * FRS
-  * Test Plan - Done
-  * Test Cases - Done
-  * Bug Reports  - In progress
-  * Tracebility Matrix 
+  * FRS - Done
+  * Test Plan - In Progress
+  * Test Cases - In Progress
+  * Bug Reports  - In Progress
+  * Tracebility Matrix - In Progress
   * Test Suites - In Progress
   * Web Tests - In Progress
   * API Tests - In Progress
