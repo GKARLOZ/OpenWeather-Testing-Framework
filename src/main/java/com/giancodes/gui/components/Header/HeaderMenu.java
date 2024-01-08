@@ -24,6 +24,9 @@ public class HeaderMenu extends HeaderMenuBase{
     @FindBy(xpath = "//ul[contains(@id, \"user-dropdown-menu\")]//a[contains(@href, \"/api_keys\")]")
     private ExtendedWebElement apiKeys;
 
+    @FindBy(xpath = "//ul[contains(@id, \"user-dropdown-menu\")]//a[contains(@href,\"/home\")]")
+    private ExtendedWebElement profile;
+
 
     public HeaderMenu(WebDriver driver , SearchContext searchContext){
         super(driver, searchContext);
@@ -35,18 +38,18 @@ public class HeaderMenu extends HeaderMenuBase{
 
     public ExtendedWebElement getElementFromUserMenu(String element) {
 
-        if (element.equalsIgnoreCase("Logout")){
+        if (element.equalsIgnoreCase("Logout")) {
 
             return logout;
-        }
-        else if (element.equalsIgnoreCase("My API keys")) {
+        } else if (element.equalsIgnoreCase("My API keys")) {
             return apiKeys;
+
+        } else if (element.equalsIgnoreCase("My profile")) {
+            return profile;
 
         } else return null;
 
     }
-
-
 
     public SignInPage clickSignInButton(){
 

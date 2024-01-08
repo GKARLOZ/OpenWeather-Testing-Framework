@@ -1,9 +1,11 @@
 package com.giancodes.desktopTests;
 
 import com.giancodes.gui.pages.common.APIKeysPageBase;
+import com.giancodes.gui.pages.common.ProfilePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.giancodes.gui.pages.desktop.APIKeysPage;
+import com.giancodes.gui.pages.desktop.ProfilePage;
 import com.giancodes.gui.pages.desktop.SignInPage;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.carina.core.IAbstractTest;
@@ -54,4 +56,42 @@ public class SignOutTest implements IAbstractTest, IBase {
        Assert.assertFalse(apiPage.getKeyTable().isPresent(),"API key table should not be displayed after logout.");
 
     }
+    @Test(description = "Validate user can immediately login after changing password.")
+    @TestCaseKey({"OPENW-693"})
+    public void changePassword(){
+
+        Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isClickable(),"User name not clickable.");
+        userHomePage.getHeaderMenu().getUserNameOnMenu().click();
+        userHomePage.getHeaderMenu().getElementFromUserMenu("My profile").click();
+
+        ProfilePageBase profilePage = new ProfilePage(getDriver());
+        profilePage.setChangePassword("123qwe!@#QWE1");
+        Assert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
+        profilePage.header().getUserNameOnMenu().click();
+        profilePage.header().getElementFromUserMenu("logout").click();
+
+
+        SignInPageBase signInPage = new SignInPage(getDriver());
+        Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
+
+        userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE1");
+        Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."),"Sign In not successful.");
+        Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isPresent(),"Username not present on main menu.");
+
+        //change password to original password.
+        userHomePage.getHeaderMenu().getUserNameOnMenu().click();
+        userHomePage.getHeaderMenu().getElementFromUserMenu("My profile").click();
+
+        profilePage.setChangePassword("123qwe!@#QWE");
+        Assert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
+        profilePage.header().getUserNameOnMenu().click();
+        profilePage.header().getElementFromUserMenu("logout").click();
+
+        Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
+
+
+
+
+    }
+
 }
