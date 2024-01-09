@@ -37,6 +37,9 @@ public class SignInPage extends SignInPageBase {
     @FindBy(xpath = "//input[contains(@value, \"Send\")]")
     private ExtendedWebElement recoverEmailSendButton;
 
+    @FindBy(xpath = "//input[contains(@class, \"form-control string email optional\")]")
+    private ExtendedWebElement recoverEmailTextBox;
+
     public SignInPage(WebDriver driver){
         super(driver);
 
@@ -77,6 +80,13 @@ public class SignInPage extends SignInPageBase {
         passwordTextBox.type(password);
         submitButton.click();
         return new UserHomePage(driver);
+
+    }
+
+    public void recoverPassword(String email){
+        recoverEmail.click();
+        recoverEmailTextBox.type(email);
+        recoverEmailSendButton.click();
 
     }
 
