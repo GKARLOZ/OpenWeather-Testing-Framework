@@ -17,17 +17,16 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
     private SignInPageBase signInPage;
 
     @BeforeMethod()
-    public void signIn(){
+    public void setUp(){
 
         signInPage = openSignInPage();
 
-
-
     }
 
-    //this test will fail if reseting password is in progress.
-    @Test(description = "Reset password")
-    public void resetPassword(){
+    //this test will fail if resetting password is in progress. Takes 24 hours to send another email.
+    @Test(description = "Recovery link to reset password.")
+    @TestCaseKey("OPENW-695")
+    public void resetPasswordTest(){
 
         signInPage.recoverPassword("testytestio836@gmail.com");
 
@@ -37,12 +36,28 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
                 "Wrong alert message.");
         softAssert.assertAll();
 
+    }
+
+    @Test(description = "Recovery link to reset password.")
+    @TestCaseKey("OPENW-699")
+    public void recoverPasswordNonUserTest(){
+
+        signInPage.recoverPassword("FakeEmailfake555@gmail.com");
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(signInPage.getAlertMessage().isPresent(),"No alert message is present.");
+        softAssert.assertTrue(signInPage.getAlertMessage().getText().equals("Email not found"),
+                "Wrong alert message.");
+        softAssert.assertAll();
 
     }
 
-//    @Test(description = "Validate user can immediately login after changing password.")
-    @TestCaseKey({""})
-    public void changePassword(){
+    @Test(description = "Validate user can immediately login after changing password.")
+    @TestCaseKey("")
+    public void changePasswordTest(){
+
+        SoftAssert softAssert = new SoftAssert();
+
         UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isClickable(),"User name not clickable.");
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
@@ -50,7 +65,7 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
 
         ProfilePageBase profilePage = new ProfilePage(getDriver());
         profilePage.setChangePassword("123qwe!@#QWE1");
-        Assert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
+        softAssert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
         profilePage.header().getUserNameOnMenu().click();
         profilePage.header().getElementFromUserMenu("logout").click();
 
@@ -59,7 +74,7 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
         Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
         userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE1");
-        Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."),"Sign In not successful.");
+        softAssert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."),"Sign In not successful.");
         Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isPresent(),"Username not present on main menu.");
 
         //change password to original password.
@@ -67,16 +82,14 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
         userHomePage.getHeaderMenu().getElementFromUserMenu("My profile").click();
 
         profilePage.setChangePassword("123qwe!@#QWE");
-        Assert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
+        softAssert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
         profilePage.header().getUserNameOnMenu().click();
         profilePage.header().getElementFromUserMenu("logout").click();
 
-        Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
+        softAssert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
-
-
+        softAssert.assertAll();
 
     }
-
 
 }

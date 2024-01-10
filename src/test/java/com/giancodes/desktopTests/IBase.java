@@ -38,16 +38,6 @@ public interface IBase extends IAbstractTest {
         return signInPage;
 
     }
-    default SignInPageBase openSignInPage(String browser){
-        HomePageBase hp = openHomePage(browser);
-
-        SignInPageBase signInPage = hp.getHeaderMenu().clickSignInButton();
-        String formTitle = signInPage.getSignInFormText().getText();
-        Assert.assertTrue(formTitle.equals("Sign In To Your Account"), "SignIn Page did not open");
-
-        return signInPage;
-
-    }
 
     default  HomePageBase multiBrowserDriver(String browser){
 

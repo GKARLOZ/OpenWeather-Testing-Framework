@@ -58,6 +58,7 @@ public class HeaderMenu extends HeaderMenuBase{
         return new SignInPage(driver);
     }
     public DashBoardPage clickDashBoardButton(){
+
         dashBoardButton.clickIfPresent();
         return new DashBoardPage(driver);
     }

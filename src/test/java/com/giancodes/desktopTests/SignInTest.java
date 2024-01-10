@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -24,12 +25,19 @@ import java.lang.invoke.MethodHandles;
 
 public class SignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private SignInPageBase signInPage;
+
+    @BeforeMethod()
+    public void setUp(){
+
+        signInPage = openSignInPage();
+
+    }
+
 
     @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     @TestCaseKey("OPENW-620")
     public void ValidCreditsSignInTest(){
-
-        SignInPageBase signInPage = openSignInPage();
 
         UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
@@ -39,8 +47,6 @@ public class SignInTest implements IAbstractTest, IBase {
     @Test(description = "Validate back button after logging in.")
     @TestCaseKey("OPENW-628")
     public void backButtonValidSignInTest(){
-
-        SignInPageBase signInPage = openSignInPage();
 
         UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
@@ -54,8 +60,6 @@ public class SignInTest implements IAbstractTest, IBase {
     @TestCaseKey({"OPENW-621","OPENW-622","OPENW-623","OPENW-624"})
     public void InvalidCreditsSignInTest(String email, String password){
 
-        SignInPageBase signInPage = openSignInPage();
-
         signInPage.signIn(email, password);
         Assert.assertTrue(signInPage.getAlertMessage().getText().equals("Invalid Email or password."), " Wrong error message displayed when entering invalid credentials in Sign In");
 
@@ -64,7 +68,7 @@ public class SignInTest implements IAbstractTest, IBase {
    @Test(description = "Validate links, placeholders, copy and paste." )
    @TestCaseKey({"OPENW-627","OPENW-625","OPENW-632"})
    public void SmallDetailsSignInTest() {
-        SignInPageBase signInPage = openSignInPage();
+
         SoftAssert softAssert = new SoftAssert();
 
         //OPENW-627
