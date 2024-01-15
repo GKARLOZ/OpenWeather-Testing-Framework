@@ -21,6 +21,7 @@ Deliverables:
   * Testing Framework integrated to Zebrunner - Done
   * Zebrunner test reports, linking test cases, and adding launchers. -Done
   * automate Docker setup for parallel testing using Selenium Grid -Done
+  * Detailed information about this projects in portfolio - in Progress
 
 :computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
 
