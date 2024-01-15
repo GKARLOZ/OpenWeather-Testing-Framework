@@ -18,8 +18,10 @@ Deliverables:
   * API Tests - In Progress
   * Mobile Tests - In Progress
   * Encryptor and Decryptor for sensitive information - Done
-  * Testing Framework integrated to Zebrunner for Test Reports and Launchers - Done
+  * Testing Framework integrated to Zebrunner - Done
+  * Zebrunner test reports, linking test cases, and adding launchers. -Done
   * automate Docker setup for parallel testing using Selenium Grid -Done
+  * Detailed information about this projects in portfolio https://www.giancodes.com/ - in Progress
 
 :computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
 
