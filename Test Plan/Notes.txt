@@ -73,6 +73,17 @@ Answer: Apparently, making the same test run parallelly by test instead of by cl
 
 After thinking, I realized that two threads can't execute the same reference. For that reason, if you want to execute the same class with different parameters parallelly, it will not be possible because it has the same reference in memory, if you create another reference pointing to that reference, then it can execute. That's what happens when executing the same class but in a different test. Check out MultiBrowserTest for an example and solution. 
 
+
+
+What is the best practice when creating a new page?
+
+a. To click a link to a new page and create the page and get the driver?
+SignInPageBase signInPage = new SignInPage(getDriver());
+
+b. To click the link and use it to return a new page? 
+userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
+
+
 Challenges-----------------------------------------------
 
 1.Repeated code when creating similar test cases such as open the same page over and over. 

@@ -38,6 +38,21 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
 
     }
 
+    //This method should fill if resetPasswordTest was nt executed first.
+    @Test(dependsOnMethods = "resetPasswordTest",description = "Recovery link to reset password after submitting a request to reset.")
+    @TestCaseKey("")
+    public void resetPasswordInProgressTest(){
+
+        signInPage.recoverPassword("testytestio836@gmail.com");
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(signInPage.getAlertMessage().isPresent(),"No alert message is present.");
+        softAssert.assertTrue(signInPage.getAlertMessage().getText().equals("You have recently requested password recovery. Please try again later"),
+                "Wrong alert message.");
+        softAssert.assertAll();
+
+    }
+
     @Test(description = "Recovery link to reset password.")
     @TestCaseKey("OPENW-699")
     public void recoverPasswordNonUserTest(){
