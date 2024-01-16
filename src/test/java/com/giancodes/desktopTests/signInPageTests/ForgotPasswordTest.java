@@ -1,5 +1,6 @@
-package com.giancodes.desktopTests;
+package com.giancodes.desktopTests.signInPageTests;
 
+import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.ProfilePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
@@ -12,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class ForgotPasswordTest implements IAbstractTest,IBase {
+public class ForgotPasswordTest implements IAbstractTest, IBase {
 
     private SignInPageBase signInPage;
 
@@ -24,7 +25,7 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
     }
 
     //this test will fail if resetting password is in progress. Takes 24 hours to send another email.
-    @Test(description = "Recovery link to reset password.")
+    @Test(groups = {"regression"}, description = "Recovery link to reset password.")
     @TestCaseKey("OPENW-695")
     public void resetPasswordTest(){
 
@@ -67,7 +68,7 @@ public class ForgotPasswordTest implements IAbstractTest,IBase {
 
     }
 
-    @Test(description = "Validate user can immediately login after changing password.")
+    @Test( groups = {"regression"}, description = "Validate user can immediately login after changing password.")
     @TestCaseKey("")
     public void changePasswordTest(){
 

@@ -1,4 +1,4 @@
-package com.giancodes.desktopTests;
+package com.giancodes;
 
 import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;

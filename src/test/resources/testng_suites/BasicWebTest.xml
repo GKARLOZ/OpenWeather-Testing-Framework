@@ -3,7 +3,7 @@
     <test  name="Sign In Test " >
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.giancodes.desktopTests.SignInTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
         </classes>
     </test>
 </suite>

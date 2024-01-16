@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression Test">
+    <test name="Test">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <!-- or -->
+                <!-- <exclude name="regression"/> -->
+            </run>
+        </groups>
+        <classes>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
+        </classes>
+    </test>
+</suite>

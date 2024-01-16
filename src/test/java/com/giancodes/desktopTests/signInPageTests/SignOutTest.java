@@ -1,11 +1,10 @@
-package com.giancodes.desktopTests;
+package com.giancodes.desktopTests.signInPageTests;
 
+import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.APIKeysPageBase;
-import com.giancodes.gui.pages.common.ProfilePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.giancodes.gui.pages.desktop.APIKeysPage;
-import com.giancodes.gui.pages.desktop.ProfilePage;
 import com.giancodes.gui.pages.desktop.SignInPage;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.carina.core.IAbstractTest;
@@ -28,7 +27,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     }
 
-    @Test(description = "Validate Logging out by selecting Logout option username dropdown menu")
+    @Test( groups = {"regression"}, description = "Validate Logging out by selecting Logout option username dropdown menu")
     @TestCaseKey("OPENW-688")
     public void validLogOutTest(){
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
@@ -38,7 +37,7 @@ public class SignOutTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
     }
-    @Test(description = "Validate logging out then back on browser")
+    @Test(groups = {"regression"}, description = "Validate logging out then back on browser")
     @TestCaseKey("OPENW-690")
     public void logOutGoBackTest(){
 

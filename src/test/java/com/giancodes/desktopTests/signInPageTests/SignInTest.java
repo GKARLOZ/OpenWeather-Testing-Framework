@@ -1,7 +1,8 @@
-package com.giancodes.desktopTests;
+package com.giancodes.desktopTests.signInPageTests;
 
 
 
+import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
@@ -35,7 +36,7 @@ public class SignInTest implements IAbstractTest, IBase {
     }
 
 
-    @Test(description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
+    @Test(  groups = {"regression"}, description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     @TestCaseKey("OPENW-620")
     public void ValidCreditsSignInTest(){
 
@@ -56,7 +57,7 @@ public class SignInTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().getText().equals("testio55"), "Invalid username on header menu.");
 
     }
-    @Test( dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
+    @Test( groups = {"regression"}, dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
     @TestCaseKey({"OPENW-621","OPENW-622","OPENW-623","OPENW-624"})
     public void InvalidCreditsSignInTest(String email, String password){
 

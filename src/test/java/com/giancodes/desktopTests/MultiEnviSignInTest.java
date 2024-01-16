@@ -1,6 +1,7 @@
 package com.giancodes.desktopTests;
 
 
+import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 
 public class MultiEnviSignInTest implements IAbstractTest, IBase {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private SignInPageBase signInPage;
     @BeforeMethod()
     @Parameters("browser")
