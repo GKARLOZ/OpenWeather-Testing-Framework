@@ -15,7 +15,7 @@ public class APITEST implements IAbstractTest {
 
     @Test()
     public void testGetWeatherwithZipCode(){
-    GetWeatherMethod getWeather = new GetWeatherMethod("90242");
+    GetWeatherMethod getWeather = new GetWeatherMethod("90210");
     getWeather.callAPIExpectSuccess();
     getWeather.validateResponse(JSONCompareMode.LENIENT, JsonCompareKeywords.TYPE.getKey());
     getWeather.validateResponseAgainstSchema("api/open_weather_api/_get/rs.schema");

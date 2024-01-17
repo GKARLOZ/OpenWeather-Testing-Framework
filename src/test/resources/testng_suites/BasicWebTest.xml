@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Web Test Suite" >
-    <test  name="Sign In Test " >
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
-        </classes>
-    </test>
-</suite>

@@ -13,26 +13,6 @@ import org.testng.annotations.Test;
 
 public class WebTest implements IAbstractTest, IAbstractDataProvider {
 
-    @Test()
-    public void testDashBoardPage(){
-
-        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
-        homePage.open();
-        Assert.assertTrue(homePage.isPageOpened(),"HomePage did not open.");
-
-        DashBoardPageBase dashBoardPage = homePage.getHeaderMenu().clickDashBoardButton();
-        Assert.assertTrue(dashBoardPage.getPageTitle().getText().equals("Weather dashboard"));
-    }
-    @Test()
-    public void testPricingPage(){
-
-        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
-        homePage.open();
-        Assert.assertTrue(homePage.isPageOpened(),"HomePage did not open.");
-
-        DashBoardPageBase dashBoardPage = homePage.getHeaderMenu().clickDashBoardButton();
-        Assert.assertTrue(dashBoardPage.getPageTitle().getText().equals("Weather dashboard"));
-    }
 
     @Test(dataProvider = "DataProvider")
     @CsvDataSourceParameters(path = "data_source/SignInData.csv", dsUid = "TUID", dsArgs = "username,password")
@@ -50,29 +30,4 @@ public class WebTest implements IAbstractTest, IAbstractDataProvider {
 
     }
 
-    @Test()
-    public void testPositiveSignIn(){
-        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
-        homePage.open();
-        Assert.assertTrue(homePage.isPageOpened(),"Homepage did not open.");
-
-        SignInPageBase signInPage = homePage.getHeaderMenu().clickSignInButton();
-        String formTitle = signInPage.getSignInFormText().getText();
-        Assert.assertTrue(formTitle.equals("Sign In To Your Account"), "SignIn Page did not open");
-
-        UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
-        Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
-
-    }
-
-
-    @DataProvider(name="SigninData")
-    public static Object[][] dataproviderOne(){
-
-        return new Object[][]{
-
-                {"qqqwe@GMAIL.COM","234WER@#$wer"}
-
-        };
-    }
 }

@@ -17,7 +17,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
 
     private SignInPageBase signInPage;
 
-    @BeforeMethod()
+    @BeforeMethod(groups = "regression")
     public void setUp(){
 
         signInPage = openSignInPage();
@@ -25,7 +25,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
     }
 
     //this test will fail if resetting password is in progress. Takes 24 hours to send another email.
-    @Test(groups = {"regression"}, description = "Recovery link to reset password.")
+    @Test( groups = "regression", description = "Recovery link to reset password.")
     @TestCaseKey("OPENW-695")
     public void resetPasswordTest(){
 

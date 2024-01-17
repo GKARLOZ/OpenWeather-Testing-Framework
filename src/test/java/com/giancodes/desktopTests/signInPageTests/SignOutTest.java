@@ -16,7 +16,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     private UserHomePageBase userHomePage;
 
-    @BeforeMethod()
+    @BeforeMethod(groups = "regression")
     public void setUp(){
 
         SignInPageBase signInPage = openSignInPage();
@@ -27,7 +27,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     }
 
-    @Test( groups = {"regression"}, description = "Validate Logging out by selecting Logout option username dropdown menu")
+    @Test( groups = "regression", description = "Validate Logging out by selecting Logout option username dropdown menu")
     @TestCaseKey("OPENW-688")
     public void validLogOutTest(){
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
@@ -37,7 +37,7 @@ public class SignOutTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
     }
-    @Test(groups = {"regression"}, description = "Validate logging out then back on browser")
+    @Test(groups = "regression", description = "Validate logging out then back on browser")
     @TestCaseKey("OPENW-690")
     public void logOutGoBackTest(){
 

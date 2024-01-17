@@ -9,7 +9,7 @@ import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
 @Endpoint(url="${url}/data/2.5/weather?zip=${zip_code},us&appid=${token}", methodType = HttpMethodType.GET)
-@ResponseTemplatePath(path="api/_get/rs.json")
+@ResponseTemplatePath(path="api/open_weather_api/_get/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetWeatherMethod extends AbstractApiMethodV2 {
 

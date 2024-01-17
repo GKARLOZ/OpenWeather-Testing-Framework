@@ -1,15 +1,16 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Regression Test">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test" parallel="classes" thread-count="4">
     <test name="Test">
         <groups>
             <run>
                 <include name="regression"/>
-                <!-- or -->
-                <!-- <exclude name="regression"/> -->
             </run>
         </groups>
         <classes>
             <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignOutTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.ForgotPasswordTest"/>
+
         </classes>
     </test>
 </suite>

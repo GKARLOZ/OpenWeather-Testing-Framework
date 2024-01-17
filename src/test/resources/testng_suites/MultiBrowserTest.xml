@@ -1,5 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Multi Browser Sign In Testing. " parallel="tests" thread-count="4">
+<!-- "Don't forget to have Docker installed and open when running this test.
+      The SetUp class will do the rest." -->
 
     <test  name="Setup Docker Grid">
         <classes>
@@ -9,19 +11,19 @@
     <test  name="Chrome Sign In Test" >
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.giancodes.desktopTests.MultiEnviSignInTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
         </classes>
     </test>
     <test  name="Firefox Sign In Test" >
         <parameter name="browser" value="Firefox"/>
         <classes>
-            <class name="com.giancodes.desktopTests.MultiEnviSignInTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
         </classes>
     </test>
     <test  name="Edge Sign In Test" >
         <parameter name="browser" value="Edge"/>
         <classes>
-            <class name="com.giancodes.desktopTests.MultiEnviSignInTest"/>
+            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
         </classes>
     </test>
 </suite>

@@ -3,6 +3,7 @@ package com.giancodes.desktopTests.signInPageTests;
 
 
 import com.giancodes.IBase;
+import com.giancodes.gui.pages.common.HomePageBase;
 import com.giancodes.gui.pages.common.SignInPageBase;
 import com.giancodes.gui.pages.common.UserHomePageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
@@ -11,9 +12,7 @@ import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -28,20 +27,24 @@ public class SignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private SignInPageBase signInPage;
 
-    @BeforeMethod()
-    public void setUp(){
+    @BeforeMethod(groups = "regression")
+    @Parameters("browser")
+    public void setUp(@Optional("Chrome") String browser){
 
-        signInPage = openSignInPage();
+        HomePageBase hp = openHomePage(browser);
+
+        signInPage = hp.getHeaderMenu().clickSignInButton();
+        String formTitle = signInPage.getSignInFormText().getText();
+        Assert.assertTrue(formTitle.equals("Sign In To Your Account"), "SignIn Page did not open");
 
     }
 
 
-    @Test(  groups = {"regression"}, description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
+    @Test(  groups = "regression", description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
     @TestCaseKey("OPENW-620")
     public void ValidCreditsSignInTest(){
-
         UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
-        Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
+        Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully.")," Green alert message not present.");
 
     }
 
@@ -57,7 +60,7 @@ public class SignInTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().getText().equals("testio55"), "Invalid username on header menu.");
 
     }
-    @Test( groups = {"regression"}, dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
+    @Test(  groups = "regression", dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
     @TestCaseKey({"OPENW-621","OPENW-622","OPENW-623","OPENW-624"})
     public void InvalidCreditsSignInTest(String email, String password){
 

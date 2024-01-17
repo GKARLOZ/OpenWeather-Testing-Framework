@@ -2,7 +2,7 @@
   <configuration default="false" name="CryptoConsoleDecrypt" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.zebrunner.carina.crypto.CryptoConsole" />
     <module name="OpenWeather-Testing-Framework" />
-    <option name="PROGRAM_PARAMETERS" value="-algorithm AES/ECB/PKCS5Padding -decrypt -key tsIQQv4Hm7daSXiH/Z+tyQ== -string hello" />
+    <option name="PROGRAM_PARAMETERS" value="-algorithm AES/ECB/PKCS5Padding -decrypt -key tsIQQv4Hm7daSXiH/Z+tyQ== -string 6a95imCtFnfkushnQwKKrj46285cy+uz6oJENFEH14Urercj9ErizczwpjndnJW+" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
