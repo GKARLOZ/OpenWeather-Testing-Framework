@@ -28,7 +28,7 @@ public class SignOutTest implements IAbstractTest, IBase {
     }
 
     @Test( groups = "regression", description = "Validate Logging out by selecting Logout option username dropdown menu")
-    @TestCaseKey("OPENW-688")
+    @TestCaseKey("OPWEA-19")
     public void validLogOutTest(){
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
         Assert.assertTrue(userHomePage.getHeaderMenu().getElementFromUserMenu("logout").isClickable(),"User menu did not appear.");
@@ -38,7 +38,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     }
     @Test(groups = "regression", description = "Validate logging out then back on browser")
-    @TestCaseKey("OPENW-690")
+    @TestCaseKey("OPWEA-21")
     public void logOutGoBackTest(){
 
        userHomePage.getHeaderMenu().getUserNameOnMenu().click();

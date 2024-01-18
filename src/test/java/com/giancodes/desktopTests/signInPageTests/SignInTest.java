@@ -26,6 +26,8 @@ import java.lang.invoke.MethodHandles;
 public class SignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private SignInPageBase signInPage;
+    private final String user = "{crypt:kBotoK+cN6NSRB6esXyilEWWd1S2udvgg2aeKU8k/oc=}";
+    private final String password = "{crypt:Gx+NSrPrmdYKFS31L5lNtg==}";
 
     @BeforeMethod(groups = "regression")
     @Parameters("browser")
@@ -40,19 +42,19 @@ public class SignInTest implements IAbstractTest, IBase {
     }
 
 
-    @Test(  groups = "regression", description = "Validate with valid email and password. Test case: TC_LF_001, TC_LC_001")
-    @TestCaseKey("OPENW-620")
+    @Test(  groups = "regression", description = "Validate with valid email and password.")
+    @TestCaseKey("OPWEA-1")
     public void ValidCreditsSignInTest(){
-        UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
+        UserHomePageBase userHomePage = signInPage.signIn(user, password);
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully.")," Green alert message not present.");
 
     }
 
     @Test(description = "Validate back button after logging in.")
-    @TestCaseKey("OPENW-628")
+    @TestCaseKey("OPWEA-9")
     public void backButtonValidSignInTest(){
 
-        UserHomePageBase userHomePage =  signInPage.signIn("testytestio836@gmail.com","123qwe!@#QWE");
+        UserHomePageBase userHomePage =  signInPage.signIn(user, password);
         Assert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."));
         getDriver().navigate().back();// back button on browser
         Assert.assertTrue(signInPage.getSignInFormText().getText().equals("Sign In To Your Account"), "SignIn Page did not open");
@@ -61,7 +63,7 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
     @Test(  groups = "regression", dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
-    @TestCaseKey({"OPENW-621","OPENW-622","OPENW-623","OPENW-624"})
+    @TestCaseKey({"OPWEA-2","OPWEA-4","OPWEA-5"})
     public void InvalidCreditsSignInTest(String email, String password){
 
         signInPage.signIn(email, password);
@@ -70,7 +72,7 @@ public class SignInTest implements IAbstractTest, IBase {
     }
 
    @Test(description = "Validate links, placeholders, copy and paste." )
-   @TestCaseKey({"OPENW-627","OPENW-625","OPENW-632"})
+   @TestCaseKey({"OPWEA-8","OPWEA-6","OPWEA-13"})
    public void SmallDetailsSignInTest() {
 
         SoftAssert softAssert = new SoftAssert();
@@ -86,8 +88,8 @@ public class SignInTest implements IAbstractTest, IBase {
         softAssert.assertTrue(signInPage.getRecoverEmailSendButton().isElementPresent(),"Send button not present.");
 
         //OEPNW-632
-        signInPage.getEmailTextBox().type("testytestio836@gmail.com");
-        signInPage.getPasswordTextBox().type("123qwe!@#QWE");
+        signInPage.getEmailTextBox().type(user);
+        signInPage.getPasswordTextBox().type(password);
         signInPage.getPasswordTextBox().click();
         signInPage.getPasswordTextBox().getElement().sendKeys(Keys.CONTROL + "a");
         signInPage.getPasswordTextBox().getElement().sendKeys(Keys.CONTROL + "c");

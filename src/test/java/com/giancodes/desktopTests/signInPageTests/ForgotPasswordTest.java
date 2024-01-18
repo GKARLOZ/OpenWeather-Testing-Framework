@@ -16,6 +16,8 @@ import org.testng.asserts.SoftAssert;
 public class ForgotPasswordTest implements IAbstractTest, IBase {
 
     private SignInPageBase signInPage;
+    private final String user = "{crypt:kBotoK+cN6NSRB6esXyilEWWd1S2udvgg2aeKU8k/oc=}";
+    private final String password = "{crypt:Gx+NSrPrmdYKFS31L5lNtg==}";
 
     @BeforeMethod(groups = "regression")
     public void setUp(){
@@ -26,10 +28,10 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
 
     //this test will fail if resetting password is in progress. Takes 24 hours to send another email.
     @Test( groups = "regression", description = "Recovery link to reset password.")
-    @TestCaseKey("OPENW-695")
+    @TestCaseKey("OPWEA-26")
     public void resetPasswordTest(){
 
-        signInPage.recoverPassword("testytestio836@gmail.com");
+        signInPage.recoverPassword(user);
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(signInPage.getAlertMessage().isPresent(),"No alert message is present.");
@@ -44,7 +46,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
     @TestCaseKey("")
     public void resetPasswordInProgressTest(){
 
-        signInPage.recoverPassword("testytestio836@gmail.com");
+        signInPage.recoverPassword(user);
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(signInPage.getAlertMessage().isPresent(),"No alert message is present.");
@@ -55,7 +57,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
     }
 
     @Test(description = "Recovery link to reset password.")
-    @TestCaseKey("OPENW-699")
+    @TestCaseKey("OPWEA-30")
     public void recoverPasswordNonUserTest(){
 
         signInPage.recoverPassword("FakeEmailfake555@gmail.com");
@@ -74,13 +76,13 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
 
         SoftAssert softAssert = new SoftAssert();
 
-        UserHomePageBase userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE");
+        UserHomePageBase userHomePage = signInPage.signIn(user,password);
         Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isClickable(),"User name not clickable.");
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
         userHomePage.getHeaderMenu().getElementFromUserMenu("My profile").click();
 
         ProfilePageBase profilePage = new ProfilePage(getDriver());
-        profilePage.setChangePassword("123qwe!@#QWE1");
+        profilePage.setChangePassword(password);
         softAssert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
         profilePage.header().getUserNameOnMenu().click();
         profilePage.header().getElementFromUserMenu("logout").click();
@@ -89,7 +91,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
         SignInPageBase signInPage = new SignInPage(getDriver());
         Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
-        userHomePage = signInPage.signIn("testytestio836@gmail.com", "123qwe!@#QWE1");
+        userHomePage = signInPage.signIn(user,password);
         softAssert.assertTrue(userHomePage.getGreenPanelMessage().getText().equals("Signed in successfully."),"Sign In not successful.");
         Assert.assertTrue(userHomePage.getHeaderMenu().getUserNameOnMenu().isPresent(),"Username not present on main menu.");
 
@@ -97,7 +99,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
         userHomePage.getHeaderMenu().getElementFromUserMenu("My profile").click();
 
-        profilePage.setChangePassword("123qwe!@#QWE");
+        profilePage.setChangePassword(password);
         softAssert.assertTrue(profilePage.getConfirmPasswordAlertMes().isPresent(),"Green alert message not present after changing password.");
         profilePage.header().getUserNameOnMenu().click();
         profilePage.header().getElementFromUserMenu("logout").click();
