@@ -10,13 +10,13 @@ Status: In progress - Deliverables not finished yet.
 Deliverables: 
   * FRS - Done
   * Test Plan - In Progress
-  * Test Cases - In Progress
+  * Test Cases - Done
   * Bug Reports  - In Progress
   * Tracebility Matrix - In Progress
-  * Test Suites - In Progress
-  * Web Tests - In Progress
-  * API Tests - In Progress
-  * Mobile Tests - In Progress
+  * Test Suites - Done
+  * Web Tests - Done
+  * API Test - Done 
+  * Mobile Test - Done
   * Encryptor and Decryptor for sensitive information - Done
   * Testing Framework integrated to Zebrunner - Done
   * Zebrunner test reports, linking test cases, and adding launchers. -Done
