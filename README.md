@@ -27,8 +27,16 @@ Deliverables:
 
 :heavy_exclamation_mark: This project will be an improved version of this project [Solvd-Carina](https://github.com/GKARLOZ/Solvd_Carina_Project)
 
+
 ### Getting started
 * Install and configure JDK 11
 * Install and configure [Apache Maven 3.6.0+](http://maven.apache.org/)
 * Download and start the latest [Selenium standalone server](http://www.seleniumhq.org/download/)
 * [Read Carina documentation](https://zebrunner.github.io/carina/)
+
+
+![Screenshot 2024-01-19 165002](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/b2e0d3dd-c8c3-4ebb-95f2-166c4b8c45ed)
+
+![Zight 2024-1-19 at 4 26 54 PM](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/029b9d10-a203-478e-96c1-b9a6e866683b)
+
+
