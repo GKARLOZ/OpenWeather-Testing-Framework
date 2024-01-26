@@ -1,13 +1,14 @@
 # OpenWeather-Testing-Framework
 
- 🤔 Why OpenWeatherMap.org? <br>
+###  🤔 Why OpenWeatherMap.org? <br>
  This company provides a dedicated website for web testing, restricted API access for API testing, and a mobile app for mobile testing. Consequently, OpenWeather serves as an excellent illustration to showcase the development of a well-designed testing framework using the Carina Framework. 
 
-:dart: Objective: The objective is to showcase the outcomes and deliverables within a simulated QA environment that closely mirrors real-world scenarios when creating new features.
+### :dart: Objective: 
+The objective is to showcase the outcomes and deliverables within a simulated QA environment that closely mirrors real-world scenarios when creating new features.
 
 Status: In progress - Deliverables not finished yet.
 
-Deliverables: 
+### Deliverables: 
   * FRS - Done
   * Test Plan - In Progress
   * Test Cases - Done
@@ -22,18 +23,31 @@ Deliverables:
   * Zebrunner test reports, linking test cases, and adding launchers. -Done
   * automate Docker setup for parallel testing using Selenium Grid -Done
   * Detailed information about this projects in portfolio https://www.giancodes.com/ - in Progress
-
-:computer: Technologies: Carina Framework, Selenium, Appium, TestNG, Docker, Java
-
-:heavy_exclamation_mark: This project will be an improved version of this project [Solvd-Carina](https://github.com/GKARLOZ/Solvd_Carina_Project)
-
-
+ 
 ### Getting started
 * Install and configure JDK 11
 * Install and configure [Apache Maven 3.6.0+](http://maven.apache.org/)
 * Download and start the latest [Selenium standalone server](http://www.seleniumhq.org/download/)
 * [Read Carina documentation](https://zebrunner.github.io/carina/)
 
+### Steps: :exclamation:
+## a. 
+* Make sure you have setup Selenium Grid and the right Chrome webdriver version.
+   
+## b.
+* open cmd and clone this repository:
+
+      git clone https://github.com/GKARLOZ/OpenWeather-Testing-Framework.git
+  
+## c. 
+* On the cmd, go to directory where you saved the Selenium Grid and run the following command: <br> (Note: replace the "version" with your selenium server version):    
+
+      java -jar selenium-server-<version>.jar standalone
+## d. 
+* On the cmd, go to the /to/path/OpenWeather-Testing-Framework directory and run the following command: <br> (Note: this will execute the regression web test for OpenWeather)  
+
+      mvn clean test
+  
 ### Test Report
 ![Screenshot 2024-01-19 165002](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/b2e0d3dd-c8c3-4ebb-95f2-166c4b8c45ed)
 
