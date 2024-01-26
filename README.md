@@ -51,8 +51,8 @@ Status: In progress - Deliverables not finished yet.
 ### Test Report
 ![Screenshot 2024-01-19 165002](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/b2e0d3dd-c8c3-4ebb-95f2-166c4b8c45ed)
 
-### Bugs
-![Zight 2024-1-19 at 4 26 54 PM](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/029b9d10-a203-478e-96c1-b9a6e866683b)
+<!-- ### Bugs
+![Zight 2024-1-19 at 4 26 54 PM](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/029b9d10-a203-478e-96c1-b9a6e866683b) -->
 
 ### Testing Framework using Intellij
 ![Screenshot 2024-01-24 130815](https://github.com/GKARLOZ/OpenWeather-Testing-Framework/assets/20764455/9ad7d941-c9b5-46a8-a858-5b481f8272b7)
