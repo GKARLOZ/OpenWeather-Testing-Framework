@@ -12,7 +12,7 @@ Status: In progress - Deliverables not finished yet.
   * FRS - Done
   * Test Plan - In Progress
   * Test Cases - Done
-  * Bug Reports  - In Progress
+  * Bug Reports  - Done
   * Tracebility Matrix - In Progress
   * Test Suites - Done
   * Web Tests - Done
