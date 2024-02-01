@@ -21,7 +21,7 @@ Status: In progress - Deliverables not finished yet.
   * Testing Framework integrated to Zebrunner - Done
   * Zebrunner test reports, linking test cases, and adding launchers. -Done
   * automate Docker setup for parallel testing using Selenium Grid -Done
-  * Detailed information about this projects in portfolio https://www.giancodes.com/ - in Progress
+  * Detailed information about this projects in portfolio https://www.giancodes.com/featuredproject/ - in Progress
  
 ### Getting started
 * Install and configure JDK 11
