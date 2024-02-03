@@ -6,7 +6,8 @@
 ### :dart: Objective: 
 The objective is to showcase the outcomes and deliverables within a simulated QA environment that closely mirrors real-world scenarios when creating new features.
 
-Status: In progress - Deliverables not finished yet.
+### For more details, Check out this link --> https://www.giancodes.com/featuredproject/
+
 
 ### Deliverables: 
   * FRS - Done
