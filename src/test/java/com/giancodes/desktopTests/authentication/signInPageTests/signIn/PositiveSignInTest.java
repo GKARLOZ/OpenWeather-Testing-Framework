@@ -1,4 +1,4 @@
-package com.giancodes.desktopTests.signInPageTests;
+package com.giancodes.desktopTests.authentication.signInPageTests.signIn;
 
 
 
@@ -23,13 +23,13 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 
 
-public class SignInTest implements IAbstractTest, IBase {
+public class PositiveSignInTest implements IAbstractTest, IBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private SignInPageBase signInPage;
     private final String user = "{crypt:kBotoK+cN6NSRB6esXyilEWWd1S2udvgg2aeKU8k/oc=}";
     private final String password = "{crypt:Gx+NSrPrmdYKFS31L5lNtg==}";
 
-    @BeforeMethod(groups = "regression")
+    @BeforeMethod(groups = {"regression","smoke","fixing"})
     @Parameters("browser")
     public void setUp(@Optional("Chrome") String browser){
 
@@ -42,7 +42,7 @@ public class SignInTest implements IAbstractTest, IBase {
     }
 
 
-    @Test(  groups = "regression", description = "Validate with valid email and password.")
+    @Test( groups = {"regression","smoke","fixing"}, description = "Validate with valid email and password.")
     @TestCaseKey("OPWEA-1")
     public void ValidCreditsSignInTest(){
         UserHomePageBase userHomePage = signInPage.signIn(user, password);
@@ -50,7 +50,7 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
 
-    @Test(description = "Validate back button after logging in.")
+    @Test( description = "Validate back button after logging in.")
     @TestCaseKey("OPWEA-9")
     public void backButtonValidSignInTest(){
 
@@ -60,14 +60,6 @@ public class SignInTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getSignInFormText().getText().equals("Sign In To Your Account"), "SignIn Page did not open");
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().isPresent(), "User is not logged in when clicking the back button on browser.");
         Assert.assertTrue(signInPage.getHeaderMenu().getUserNameOnMenu().getText().equals("testio55"), "Invalid username on header menu.");
-
-    }
-    @Test(  groups = "regression", dataProvider = "invalidCreds", description = "Validate signing in with invalid credentials.")
-    @TestCaseKey({"OPWEA-2","OPWEA-4","OPWEA-5"})
-    public void InvalidCreditsSignInTest(String email, String password){
-
-        signInPage.signIn(email, password);
-        Assert.assertTrue(signInPage.getAlertMessage().getText().equals("Invalid Email or password."), " Wrong error message displayed when entering invalid credentials in Sign In");
 
     }
 
@@ -107,19 +99,6 @@ public class SignInTest implements IAbstractTest, IBase {
 
     }
 
-    @DataProvider(name = "invalidCreds", parallel = true)
-    public Object[][]dataproviderForSearch(){
 
-        return new Object[][]{
-                {"xyzabc123@gmail.com", "xyzabc123"},//invalid email and password //TC_LF_002
-                {"t836@gmail.com", "123qwe!@#QWE" },//invalid email and valid Password //TC_LF_003
-                {"testytestio836@gmail.com", "123qwe!@#QW"},//valid email and invalid password // TC_LC_004
-                {"",""},//leave blank//TC_LC_005
-                {"  ", "  "}//leave spaces
-
-
-        };
-
-    }
 
 }

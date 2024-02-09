@@ -1,4 +1,4 @@
-package com.giancodes.desktopTests.signInPageTests;
+package com.giancodes.desktopTests.authentication.signInPageTests.signOut;
 
 import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.APIKeysPageBase;
@@ -16,7 +16,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     private UserHomePageBase userHomePage;
 
-    @BeforeMethod(groups = "regression")
+    @BeforeMethod(groups = {"regression","smoke"})
     public void setUp(){
 
         SignInPageBase signInPage = openSignInPage();
@@ -27,7 +27,7 @@ public class SignOutTest implements IAbstractTest, IBase {
 
     }
 
-    @Test( groups = "regression", description = "Validate Logging out by selecting Logout option username dropdown menu")
+    @Test( groups = {"regression","smoke"}, description = "Validate Logging out by selecting Logout option username dropdown menu")
     @TestCaseKey("OPWEA-19")
     public void validLogOutTest(){
         userHomePage.getHeaderMenu().getUserNameOnMenu().click();
@@ -37,7 +37,7 @@ public class SignOutTest implements IAbstractTest, IBase {
         Assert.assertTrue(signInPage.getAlertMessage().isPresent(),"Red Alert message not present.");
 
     }
-    @Test(groups = "regression", description = "Validate logging out then back on browser")
+    @Test( groups = "regression", description = "Validate logging out then back on browser")
     @TestCaseKey("OPWEA-21")
     public void logOutGoBackTest(){
 

@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTest" parallel="classes" thread-count="4">
+    <test name="SmokeTests">
+    <!-- mvn test -DxmlFilePath=${project.build.directory}/test-classes/testng_suites/SmokeTest.xml
+                                                                    mvn test -DxmlFilePath=/src/test/resources/testng_suites/SmokeTest.xml
+                                                                    mvn clean test -Dsurefire.suiteXmlFiles=/src/test/resources/testng_suites/SmokeTest.xml
+                                                                    mvn -Dsurefire.suiteXmlFiles=/src/test/resources/testng_suites/SmokeTest.xml test
+                                                                    mvn -DxmlFilePath=${project.build.directory}/test-classes/testng_suites/SmokeTest.xml test
+                                                                    mvn -Dtest=SmokeTests test
+                                                                    mvn clean test -DxmlFilePath=/src/test/resources/testng_suites/SmokeTest.xml test
+                                                                    mvn clean test -DsuiteXmlFile=src/test/resources/testng_suites/SmokeTest.xml
+                                                                    mvn clean test -DsuiteXmlFile=SmokeTest
+
+-->
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.PositiveSignInTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signOut.SignOutTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.forgotPassword.ForgotPasswordTest"/>
+
+        </classes>
+    </test>
+</suite>

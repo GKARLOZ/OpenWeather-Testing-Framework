@@ -11,19 +11,19 @@
     <test  name="Chrome Sign In Test" >
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.PositiveSignInTest"/>
         </classes>
     </test>
     <test  name="Firefox Sign In Test" >
         <parameter name="browser" value="Firefox"/>
         <classes>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.PositiveSignInTest"/>
         </classes>
     </test>
     <test  name="Edge Sign In Test" >
         <parameter name="browser" value="Edge"/>
         <classes>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.PositiveSignInTest"/>
         </classes>
     </test>
 </suite>

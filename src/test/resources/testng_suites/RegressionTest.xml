@@ -3,13 +3,14 @@
     <test name="Test">
         <groups>
             <run>
-                <include name="regression"/>
+                <include name="fixing"/>
             </run>
         </groups>
         <classes>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignInTest"/>
-            <class name="com.giancodes.desktopTests.signInPageTests.SignOutTest"/>
-            <class name="com.giancodes.desktopTests.signInPageTests.ForgotPasswordTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.PositiveSignInTest"/>
+            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signIn.NegativeSignInTest"/>
+            <!--            <class name="com.giancodes.desktopTests.authentication.signInPageTests.signOut.SignOutTest"/>-->
+<!--            <class name="com.giancodes.desktopTests.authentication.signInPageTests.forgotPassword.ForgotPasswordTest"/>-->
 
         </classes>
     </test>

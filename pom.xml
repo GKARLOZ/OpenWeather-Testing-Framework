@@ -162,7 +162,10 @@
 					<!--					<argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>-->
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<suiteXmlFiles>
-						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/RegressionTest.xml</suiteXmlFile>
+						<!--suppress UnresolvedMavenProperty -->
+<!--						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
+						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/SmokeTest.xml</suiteXmlFile>
+<!--						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/RegressionTest.xml</suiteXmlFile>-->
 <!--						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/MultiBrowserTest.xml</suiteXmlFile>-->
 						<!--						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>-->
 

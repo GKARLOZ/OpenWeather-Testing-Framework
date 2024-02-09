@@ -1,4 +1,4 @@
-package com.giancodes.desktopTests.signInPageTests;
+package com.giancodes.desktopTests.authentication.signInPageTests.forgotPassword;
 
 import com.giancodes.IBase;
 import com.giancodes.gui.pages.common.ProfilePageBase;
@@ -19,7 +19,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
     private final String user = "{crypt:kBotoK+cN6NSRB6esXyilEWWd1S2udvgg2aeKU8k/oc=}";
     private final String password = "{crypt:Gx+NSrPrmdYKFS31L5lNtg==}";
 
-    @BeforeMethod(groups = "regression")
+    @BeforeMethod(groups = {"regression","smoke"})
     public void setUp(){
 
         signInPage = openSignInPage();
@@ -27,7 +27,7 @@ public class ForgotPasswordTest implements IAbstractTest, IBase {
     }
 
     //this test will fail if resetting password is in progress. Takes 24 hours to send another email.
-    @Test( groups = "regression", description = "Recovery link to reset password.")
+    @Test( groups = {"regression","smoke"}, description = "Recovery link to reset password.")
     @TestCaseKey("OPWEA-26")
     public void resetPasswordTest(){
 
