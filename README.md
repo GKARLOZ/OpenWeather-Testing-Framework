@@ -18,6 +18,7 @@ The objective is to showcase the outcomes and deliverables within a simulated QA
   * Web Tests - Done
   * API Test - Done 
   * Mobile Test - Done
+  * Regression, Smoke, End to End tests - in Progress
   * Encryptor and Decryptor for sensitive information - Done
   * Testing Framework integrated to Zebrunner - Done
   * Zebrunner test reports, linking test cases, and adding launchers. -Done
